@@ -1,0 +1,44 @@
+<h1>Welcome to Mario's Market!</h1>
+
+<p>For over 30 years, Mario's has been a proud member of the Tri-state area community! In addition to serving <a href="https://pangtodd.github.io/PizzaParlor/">the best Pizza</a> in the area, we are also the go-to spot for hard-to-find items! Please view our products below, and feel free to leave a review.</p>
+
+<% if @products.any? %>
+
+  <h3>Spotlight! our most reviewed product:
+    <% @products.most_reviews.each do |product| %>
+      <%= link_to product.name, product_path(product) %></h3>
+    <% end %>
+  
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+    new additions
+  </button>
+
+  <div class="collapse" id="collapse1">
+    <ul>
+      <% @products.three_most_recent.each do |product| %>
+        <li><%= link_to product.name, product_path(product) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <br>
+  <br>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+    Proudly made in the USA!
+  </button>
+  <div class="collapse" id="collapse2">
+    <ul>
+      <% @products.from_usa.each do |product| %>
+        <li><%= link_to product.name, product_path(product) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <br>
+  <br>
+  <a class = "btn btn-primary" href='/products' role="button">All products</a>
+
+<% else %>
+  <p>Hold your horses, we're still stocking the shelves!</p>
+<% end %>
+<br>
+<br>
+ <a class = "btn btn-primary" href='/products/new' role="button">Enter new product</a>

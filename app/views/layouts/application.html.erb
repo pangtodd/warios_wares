@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+    <title>MariosMarketplace</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="container">
+      <%= image_tag "marketplace2.jpg" %>
+      <nav class = "navbar navbar-light bg-light">
+        <div class="navbar-header">
+          <%= link_to "home", root_path, class: "navbar-brand" %>
+        </div>
+        <ul class="nav navbar-nav navbar-left">
+          <li><%= link_to "all products", products_path%> </li>
+          <li><%= link_to "add product", new_product_path%> </li>
+          <li> <a href="https://pangtodd.github.io/PizzaParlor/">Mario's Hideout Pizza</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="container">
+      <%= flash[:alert] %>
+      <%= flash[:notice] %>
+      <%= yield %>
+    </section>
+  </body>
+</html>
