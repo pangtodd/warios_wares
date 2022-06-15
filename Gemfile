@@ -12,6 +12,10 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
+gem 'devise'
+
+gem 'devise-bootstrapped'
+
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
 # Use Uglifier as compressor for JavaScript assets
