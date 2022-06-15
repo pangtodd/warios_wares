@@ -1,0 +1,24 @@
+<header class="container">
+  <h1>WARIO'S WARES!</h1>
+  <%= image_tag "marketplace2.jpg" %>
+  <nav class = "navbar navbar-light bg-light">
+    <div class="navbar-header">
+      <%= link_to "home", root_path, class: "navbar-brand" %>
+    </div>
+    <ul class="nav navbar-nav navbar-left">
+      <li><%= link_to "all products", products_path%> </li>
+      <% if is_admin?%>
+        <li><%= link_to "add product", new_product_path%> </li>
+      <%end %>
+      <li> <a href="https://pangtodd.github.io/PizzaParlor/">Mario's Hideout Pizza</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+        <li><%= link_to "#{current_user.email}: sign out", destroy_user_session_path, method: :delete%> </li>
+      <% else%>
+        <li><%= link_to "sign up", new_user_registration_path%> </li>
+        <li><%= link_to "sign in", new_user_session_path%> </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
